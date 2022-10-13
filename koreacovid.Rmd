@@ -35,13 +35,19 @@ Table of patients:
 with(kRdata, table(Sex, result))
 
 ```
+Out of the 1800 Females in Korea during Covid 19 there were far less deaths compared to that of males.
+
 
 ## We create two bar charts - one based on frequency and the other on percent, use ggplot commands to do this
 
 `
+```{r}
+barchartGC(~result + Sex,data=kRdata)
+barchartGC(~result + Sex,data=kRdata, type="percent")
 
+```
   
-
+Based on the barplot shown above you're more likely to be a deceased male in Korea that has died due to covid 19.
 
 
 
@@ -49,11 +55,28 @@ with(kRdata, table(Sex, result))
   
 ## Numerical results
 
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+The probability of a Male dying from covid 19 compared to that of a female was by 2.6 times
+
+
 
 ## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
-
-
+The P-value is .0012 which would be lower than .05 allowing us to determine that we reject the null hypothesis.
 
 ## Conclusions
+
+Question 1 - Is dying independent of sex
+
+Going back to answer the first question, we can say for this study alone it showed us that Sex was an impotand and determining factor.
+
 
