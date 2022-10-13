@@ -25,7 +25,7 @@ state of a patient must be died or alive - we adjust that as well
 # Question 1 - Is dying independent of sex
 
 
-
+Based on the gender we'll be using the CAT~CAT helper file.
 
 Table of patients:
 ```{r}
